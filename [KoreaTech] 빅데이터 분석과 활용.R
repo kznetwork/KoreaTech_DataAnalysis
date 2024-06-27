@@ -227,7 +227,7 @@ install.packages("readxl")
 library(readxl)
 install.packages("dplyr")
 library(dplyr)
-setwd("C:/DEV/r-workspaces/rs")
+setwd("C:/DEV/r-workspaces")
 GE_PBA_A_검사서_2022_04_19<-read_excel(path="data/2022-04-19_GE_PBA_A_검사서.xlsx",sheet = "BFT")
 GE_PBA_A_검사서_2022_04_20<-read_excel(path="data/2022-04-20_GE_PBA_A_검사서.xlsx",sheet = "BFT")
 head(GE_PBA_A_검사서_2022_04_19)
@@ -299,6 +299,22 @@ head(GE_PBA_A_검사서_new)
 class(GE_PBA_A_검사서_new$ResultOK)
 length(GE_PBA_A_검사서_new$ResultOK)
 table(GE_PBA_A_검사서_new$ResultOK)
+
+str(GE_PBA_A_검사서_new)
+
+# 필요한 열을 적절한 데이터 타입으로 변환
+GE_PBA_A_검사서_new$ResultOK <- as.factor(GE_PBA_A_검사서_new$ResultOK)
+GE_PBA_A_검사서_new$BLE.RSSI <- as.numeric(GE_PBA_A_검사서_new$BLE.RSSI)
+GE_PBA_A_검사서_new$ATIVECURR <- as.numeric(GE_PBA_A_검사서_new$ATIVECURR)
+GE_PBA_A_검사서_new$STANBYCURR <- as.numeric(GE_PBA_A_검사서_new$STANBYCURR)
+GE_PBA_A_검사서_new$IR.Current <- as.numeric(GE_PBA_A_검사서_new$IR.Current)
+GE_PBA_A_검사서_new$IR.LED <- as.numeric(GE_PBA_A_검사서_new$IR.LED)
+GE_PBA_A_검사서_new$ACC_X <- as.numeric(GE_PBA_A_검사서_new$ACC_X)
+GE_PBA_A_검사서_new$ACC_Y <- as.numeric(GE_PBA_A_검사서_new$ACC_Y)
+GE_PBA_A_검사서_new$ACC_Z <- as.numeric(GE_PBA_A_검사서_new$ACC_Z)
+
+str(GE_PBA_A_검사서_new)
+
 
 formula <- ResultOK ~ BLE.RSSI + ATIVECURR + STANBYCURR + IR.Current + IR.LED + ACC_X + ACC_Y + ACC_Z
 GE_PBA_A_검사서_ctree <- ctree(formula, data = GE_PBA_A_검사서_new)
