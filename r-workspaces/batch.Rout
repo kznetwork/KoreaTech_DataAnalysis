@@ -1,0 +1,33 @@
+
+R version 4.4.3 (2025-02-28 ucrt) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #############################
+> # R기초
+> #############################
+> setwd("C:/DEV/r-workspaces")
+> .libPaths()
+[1] "C:/DEV/r-workspaces/library"        "C:/Program Files/R/R-4.4.3/library"
+> 
+> install.packages("AID")
+Installing package into 'C:/DEV/r-workspaces/library'
+(as 'lib' is unspecified)
+Error in contrib.url(repos, "source") : 
+  trying to use CRAN without setting a mirror
+Calls: install.packages -> contrib.url
+Execution halted
